@@ -64,16 +64,25 @@ Model reliability page: test results from `reports/metrics.json` and the limits.
 ## Layout
 
 ```
-datasets/        raw/ (downloaded by you), samples/ (generated), make_samples.py, README.md (sources and licences)
-src/disaster_risk/  config, data loading, training, prediction, alert rules, SQLite history
-visualisation/   make_clusters.py (K-means), make_figures.py (exploratory figures), make_results_figure.py (results chart), maps.py, theme.py
-dashboard/       Home.py, ui.py, pages/ (Streamlit app)
-models/          flood_xgb.json, earthquake_severity_xgb.json, flood_features.json
-notebooks/       XGBoost_Disaster_Prediction.ipynb, Disaster_Prediction_ML_Pipeline.ipynb (Random Forest baselines)
-reports/         metrics.json, figures/ (cluster, exploratory and results figures, cluster_info.json)
-tests/           pytest tests
-docs/            reference_results.md, screenshots/
-run.bat, run.sh  start the dashboard (creates .venv and installs on the first run)
+datasets/            raw/ (downloaded by you), samples/ (generated),
+                     make_samples.py, README.md (sources and licences)
+src/disaster_risk/   config, data loading, training, prediction,
+                     alert rules, SQLite history
+visualisation/       make_clusters.py (K-means), make_figures.py
+                     (exploratory figures), make_results_figure.py
+                     (results chart), maps.py, theme.py
+dashboard/           Home.py, ui.py, pages/ (Streamlit app)
+models/              flood_xgb.json, earthquake_severity_xgb.json,
+                     flood_features.json
+notebooks/           XGBoost_Disaster_Prediction.ipynb,
+                     Disaster_Prediction_ML_Pipeline.ipynb
+                     (Random Forest baselines)
+reports/             metrics.json, figures/ (cluster, exploratory and
+                     results figures, cluster_info.json)
+tests/               pytest tests
+docs/                reference_results.md, screenshots/
+run.bat, run.sh      start the dashboard (creates .venv and installs
+                     on the first run)
 ```
 
 ## Quick start
