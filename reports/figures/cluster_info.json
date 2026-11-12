@@ -1,0 +1,107 @@
+{
+  "settings": {
+    "k_range": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "k_shown": 3,
+    "seed": 42,
+    "silhouette_subsample": 10000,
+    "n_init": 10
+  },
+  "earthquake": {
+    "features": [
+      "longitude",
+      "latitude",
+      "depth"
+    ],
+    "rows": 50000,
+    "inertia": [
+      90501.86569894508,
+      64348.09310802248,
+      47250.721802162676,
+      35206.9225740025,
+      27824.894231852446,
+      23464.90022136224
+    ],
+    "silhouette": [
+      0.6988478770657316,
+      0.6816078364689403,
+      0.5604894000170035,
+      0.5896207425142659,
+      0.6116970954820959,
+      0.6219023862406592
+    ],
+    "highest_silhouette_k": 2,
+    "k3_cluster_sizes": [
+      44021,
+      5531,
+      448
+    ],
+    "k3_mean_depth_km": [
+      14.61,
+      51.93,
+      480.26
+    ]
+  },
+  "flood": {
+    "features": [
+      "MonsoonIntensity",
+      "TopographyDrainage",
+      "RiverManagement",
+      "Deforestation",
+      "Urbanization",
+      "ClimateChange",
+      "DamsQuality",
+      "Siltation",
+      "AgriculturalPractices",
+      "Encroachments",
+      "IneffectiveDisasterPreparedness",
+      "DrainageSystems",
+      "CoastalVulnerability",
+      "Landslides",
+      "Watersheds",
+      "DeterioratingInfrastructure",
+      "PopulationScore",
+      "WetlandLoss",
+      "InadequatePlanning",
+      "PoliticalFactors"
+    ],
+    "rows": 50000,
+    "inertia": [
+      966987.6626923248,
+      942872.1108146412,
+      923083.3595466348,
+      906200.7582134602,
+      891597.1865501638,
+      878297.3985565824
+    ],
+    "silhouette": [
+      0.03290720882292798,
+      0.030199318625839123,
+      0.030292858299061184,
+      0.03063064414102087,
+      0.03073085591620568,
+      0.03177535768243729
+    ],
+    "highest_silhouette_k": 2,
+    "pca_explained_variance_ratio": [
+      0.052,
+      0.0517
+    ],
+    "k3_cluster_sizes": [
+      14657,
+      17003,
+      18340
+    ],
+    "k3_mean_flood_probability": [
+      0.5103,
+      0.5076,
+      0.4839
+    ]
+  }
+}

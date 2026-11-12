@@ -1,0 +1,18 @@
+# raw Kaggle files are downloaded by the user, not committed
+datasets/raw/*
+!datasets/raw/.gitkeep
+datasets/processed/
+*.pkl
+*.zip
+# prediction history written by the app
+storage/
+# retrained models are written next to the committed ones
+models/*.retrained.json
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+.DS_Store

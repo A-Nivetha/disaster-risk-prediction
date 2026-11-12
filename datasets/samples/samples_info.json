@@ -1,0 +1,32 @@
+{
+  "india_flood_points": {
+    "file": "india_flood_points.csv",
+    "rows": 10000,
+    "flood_occurred_share": 0.5057
+  },
+  "usgs_events_sample": {
+    "file": "usgs_events_sample.csv",
+    "rows": 6000,
+    "per_class": {
+      "High": 2000,
+      "Low": 2000,
+      "Medium": 2000
+    },
+    "sampling": "stratified, up to 2000 events per class, seed 42",
+    "source_rows_used": 3445104,
+    "feature_ranges": {
+      "longitude": [
+        -179.9997,
+        180.0
+      ],
+      "latitude": [
+        -84.422,
+        87.386
+      ],
+      "depth": [
+        -10.0,
+        735.8
+      ]
+    }
+  }
+}

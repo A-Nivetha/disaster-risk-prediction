@@ -1,0 +1,217 @@
+{
+  "flood": {
+    "task": "binary: FloodProbability >= 0.5",
+    "dataset_rows": 50000,
+    "n_features": 20,
+    "test_size": 0.2,
+    "seed": 42,
+    "xgboost_version": "3.4.1",
+    "class_share_flood": 0.5103,
+    "test_accuracy": 0.9446,
+    "cv5_accuracy_mean": 0.949,
+    "cv5_accuracy_std": 0.0016,
+    "confusion_matrix": [
+      [
+        4635,
+        262
+      ],
+      [
+        292,
+        4811
+      ]
+    ],
+    "report": {
+      "0": {
+        "precision": 0.9407347270144104,
+        "recall": 0.9464978558301,
+        "f1-score": 0.9436074918566775,
+        "support": 4897.0
+      },
+      "1": {
+        "precision": 0.9483540311452789,
+        "recall": 0.9427787575935724,
+        "f1-score": 0.945558176100629,
+        "support": 5103.0
+      },
+      "accuracy": 0.9446,
+      "macro avg": {
+        "precision": 0.9445443790798447,
+        "recall": 0.9446383067118362,
+        "f1-score": 0.9445828339786533,
+        "support": 10000.0
+      },
+      "weighted avg": {
+        "precision": 0.9446228579123926,
+        "recall": 0.9446,
+        "f1-score": 0.9446029260263659,
+        "support": 10000.0
+      }
+    },
+    "params": {
+      "n_estimators": 500,
+      "max_depth": 6,
+      "learning_rate": 0.05,
+      "subsample": 0.85,
+      "colsample_bytree": 0.85,
+      "min_child_weight": 5,
+      "gamma": 0.05,
+      "reg_alpha": 0.05,
+      "reg_lambda": 1.0,
+      "objective": "binary:logistic",
+      "eval_metric": "logloss",
+      "tree_method": "hist",
+      "random_state": 42
+    }
+  },
+  "earthquake_severity": {
+    "task": "3-class severity from magnitude (Low <4.0, Medium 4.0-6.0, High >=6.0)",
+    "features": [
+      "longitude",
+      "latitude",
+      "depth"
+    ],
+    "excluded": [
+      "magnitudo",
+      "significance"
+    ],
+    "labels": [
+      "Low",
+      "Medium",
+      "High"
+    ],
+    "seed": 42,
+    "test_size": 0.2,
+    "xgboost_version": "3.4.1",
+    "rows_raw": 3445751,
+    "rows_dropped_missing": 0,
+    "rows_dropped_invalid_magnitude": 647,
+    "rows_used": 3445104,
+    "class_counts": {
+      "Low": 3062035,
+      "Medium": 378128,
+      "High": 4941
+    },
+    "majority_class_baseline_accuracy": 0.8888,
+    "saved_model": {
+      "sample_weighting": "none",
+      "test_accuracy": 0.9754,
+      "test_macro_f1": 0.6299,
+      "confusion_matrix": [
+        [
+          603389,
+          9018,
+          0
+        ],
+        [
+          6909,
+          68703,
+          14
+        ],
+        [
+          74,
+          908,
+          6
+        ]
+      ],
+      "report": {
+        "Low": {
+          "precision": 0.9885594358850013,
+          "recall": 0.9852744988218619,
+          "f1-score": 0.986914233888544,
+          "support": 612407.0
+        },
+        "Medium": {
+          "precision": 0.8737615892355238,
+          "recall": 0.9084574088276519,
+          "f1-score": 0.890771774010567,
+          "support": 75626.0
+        },
+        "High": {
+          "precision": 0.3,
+          "recall": 0.006072874493927126,
+          "f1-score": 0.011904761904761904,
+          "support": 988.0
+        },
+        "accuracy": 0.9754390649922136,
+        "macro avg": {
+          "precision": 0.7207736750401751,
+          "recall": 0.6332682607144803,
+          "f1-score": 0.6298635899346242,
+          "support": 689021.0
+        },
+        "weighted avg": {
+          "precision": 0.9749720435219706,
+          "recall": 0.9754390649922136,
+          "f1-score": 0.974963685169344,
+          "support": 689021.0
+        }
+      }
+    },
+    "params": {
+      "n_estimators": 200,
+      "max_depth": 8,
+      "learning_rate": 0.1,
+      "subsample": 0.8,
+      "colsample_bytree": 1.0,
+      "objective": "multi:softprob",
+      "eval_metric": "mlogloss",
+      "tree_method": "hist",
+      "random_state": 42
+    },
+    "alternative_balanced_weights": {
+      "sample_weighting": "balanced",
+      "test_accuracy": 0.9486,
+      "test_macro_f1": 0.611,
+      "confusion_matrix": [
+        [
+          592006,
+          16728,
+          3673
+        ],
+        [
+          2971,
+          61123,
+          11532
+        ],
+        [
+          33,
+          468,
+          487
+        ]
+      ],
+      "report": {
+        "Low": {
+          "precision": 0.9949513453555402,
+          "recall": 0.9666871867891778,
+          "f1-score": 0.9806156448020857,
+          "support": 612407.0
+        },
+        "Medium": {
+          "precision": 0.7804364202811578,
+          "recall": 0.8082273292253986,
+          "f1-score": 0.7940887979473189,
+          "support": 75626.0
+        },
+        "High": {
+          "precision": 0.031034922253377516,
+          "recall": 0.49291497975708504,
+          "f1-score": 0.05839328537170264,
+          "support": 988.0
+        },
+        "accuracy": 0.9486154993824572,
+        "macro avg": {
+          "precision": 0.6021408959633584,
+          "recall": 0.7559431652572205,
+          "f1-score": 0.6110325760403691,
+          "support": 689021.0
+        },
+        "weighted avg": {
+          "precision": 0.9700243037273458,
+          "recall": 0.9486154993824572,
+          "f1-score": 0.958820322146672,
+          "support": 689021.0
+        }
+      }
+    }
+  }
+}

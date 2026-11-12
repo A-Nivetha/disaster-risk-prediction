@@ -1,0 +1,128 @@
+{
+  "features": [
+    "MonsoonIntensity",
+    "TopographyDrainage",
+    "RiverManagement",
+    "Deforestation",
+    "Urbanization",
+    "ClimateChange",
+    "DamsQuality",
+    "Siltation",
+    "AgriculturalPractices",
+    "Encroachments",
+    "IneffectiveDisasterPreparedness",
+    "DrainageSystems",
+    "CoastalVulnerability",
+    "Landslides",
+    "Watersheds",
+    "DeterioratingInfrastructure",
+    "PopulationScore",
+    "WetlandLoss",
+    "InadequatePlanning",
+    "PoliticalFactors"
+  ],
+  "ranges": {
+    "MonsoonIntensity": [
+      0,
+      16
+    ],
+    "TopographyDrainage": [
+      0,
+      18
+    ],
+    "RiverManagement": [
+      0,
+      16
+    ],
+    "Deforestation": [
+      0,
+      17
+    ],
+    "Urbanization": [
+      0,
+      17
+    ],
+    "ClimateChange": [
+      0,
+      17
+    ],
+    "DamsQuality": [
+      0,
+      16
+    ],
+    "Siltation": [
+      0,
+      16
+    ],
+    "AgriculturalPractices": [
+      0,
+      16
+    ],
+    "Encroachments": [
+      0,
+      18
+    ],
+    "IneffectiveDisasterPreparedness": [
+      0,
+      16
+    ],
+    "DrainageSystems": [
+      0,
+      17
+    ],
+    "CoastalVulnerability": [
+      0,
+      17
+    ],
+    "Landslides": [
+      0,
+      16
+    ],
+    "Watersheds": [
+      0,
+      16
+    ],
+    "DeterioratingInfrastructure": [
+      0,
+      17
+    ],
+    "PopulationScore": [
+      0,
+      19
+    ],
+    "WetlandLoss": [
+      0,
+      22
+    ],
+    "InadequatePlanning": [
+      0,
+      16
+    ],
+    "PoliticalFactors": [
+      0,
+      16
+    ]
+  },
+  "medians": {
+    "MonsoonIntensity": 5,
+    "TopographyDrainage": 5,
+    "RiverManagement": 5,
+    "Deforestation": 5,
+    "Urbanization": 5,
+    "ClimateChange": 5,
+    "DamsQuality": 5,
+    "Siltation": 5,
+    "AgriculturalPractices": 5,
+    "Encroachments": 5,
+    "IneffectiveDisasterPreparedness": 5,
+    "DrainageSystems": 5,
+    "CoastalVulnerability": 5,
+    "Landslides": 5,
+    "Watersheds": 5,
+    "DeterioratingInfrastructure": 5,
+    "PopulationScore": 5,
+    "WetlandLoss": 5,
+    "InadequatePlanning": 5,
+    "PoliticalFactors": 5
+  }
+}
