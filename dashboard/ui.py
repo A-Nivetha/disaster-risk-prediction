@@ -5,6 +5,7 @@ models/flood_features.json, datasets/samples/samples_info.json or a model run.
 """
 import html as _html
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -49,8 +50,8 @@ h3 {{ font-size: 26px !important; font-weight: 600; color: {TEXT}; }}
 .pill-red {{ background: rgba(239,68,68,.15); color: #F87171; border-color: #EF4444; }}
 .kpi {{ background: {CARD}; border: 1px solid {BORDER}; border-top-width: 5px; border-radius: 8px; padding: 16px 18px; height: 100%; }}
 .kpi-label {{ font-size: 19px; color: {MUTED}; font-weight: 500; }}
-.kpi-value {{ font-size: 44px; font-weight: 700; line-height: 1.15; margin: 4px 0; }}
-.kpi-text {{ font-size: 30px; overflow-wrap: normal; word-break: keep-all; }}
+.kpi-value {{ font-size: clamp(22px, 2.3vw, 44px); font-weight: 700; line-height: 1.15; margin: 4px 0; white-space: nowrap; }}
+.kpi-text {{ font-size: clamp(20px, 1.9vw, 30px); overflow-wrap: normal; word-break: keep-all; }}
 .kpi-sub {{ font-size: 18px; color: {MUTED}; line-height: 1.4; }}
 .rcard {{ border: 2px solid; border-radius: 10px; padding: 20px 22px; margin-bottom: 14px; }}
 .rcard-title {{ font-size: 42px; font-weight: 700; line-height: 1.15; }}
@@ -60,10 +61,12 @@ h3 {{ font-size: 26px !important; font-weight: 600; color: {TEXT}; }}
 .rcard-green {{ background: rgba(34,197,94,.13); border-color: #22C55E; }}
 .rcard-red .rcard-title {{ color: #F87171; }} .rcard-amber .rcard-title {{ color: #FBBF24; }} .rcard-green .rcard-title {{ color: #4ADE80; }}
 .pbar {{ display: flex; align-items: center; gap: 12px; margin: 10px 0; }}
+.pbars {{ container-type: inline-size; }}
 .pbar-label {{ width: 190px; font-size: 21px; font-weight: 600; }}
 .pbar-track {{ flex: 1; height: 26px; background: #1E2B45; border-radius: 5px; overflow: hidden; }}
 .pbar-fill {{ height: 100%; border-radius: 5px; }}
 .pbar-value {{ width: 90px; text-align: right; font-size: 23px; font-weight: 700; }}
+@container (max-width: 420px) {{ .pbar {{ display: grid; grid-template-columns: 1fr auto; row-gap: 4px; }} .pbar-label {{ grid-column: 1; grid-row: 1; width: auto; }} .pbar-value {{ grid-column: 2; grid-row: 1; }} .pbar-track {{ grid-column: 1 / -1; grid-row: 2; }} }}
 .notice {{ background: {CARD}; border: 1px solid {BORDER}; border-left: 6px solid; border-radius: 8px; padding: 14px 18px; margin: 10px 0 16px 0; font-size: 20px; line-height: 1.55; }}
 .notice b {{ color: {TEXT}; }}
 .notice-blue {{ border-left-color: {BLUE}; }} .notice-red {{ border-left-color: #EF4444; }} .notice-amber {{ border-left-color: #F59E0B; }} .notice-green {{ border-left-color: #22C55E; }}
@@ -85,8 +88,22 @@ h3 {{ font-size: 26px !important; font-weight: 600; color: {TEXT}; }}
 .tile {{ background: #0F1A2E; border: 1px solid {BORDER}; border-radius: 8px; padding: 12px 16px; }}
 .tile-label {{ font-size: 15px; letter-spacing: .08em; text-transform: uppercase; color: {MUTED}; font-weight: 600; }}
 .tile-value {{ font-size: 23px; font-weight: 600; color: {TEXT}; margin-top: 4px; }}
+[data-testid="InputInstructions"] {{ display: none; }}
 </style>
 """
+
+
+SCALE = 0.8  # the layout was designed at 80% browser zoom; scaling here makes 100% look the same
+
+
+def _scale_px(css: str, k: float = SCALE) -> str:
+    def one(m):
+        v = float(m.group(1))
+        return m.group(0) if v <= 1 else f"{v * k:.1f}".rstrip("0").rstrip(".") + "px"
+    return re.sub(r"(\d+(?:\.\d+)?)px", one, css)
+
+
+CSS = _scale_px(CSS)
 
 
 def setup(title: str, subtitle: str = "", needs_files: bool = True):
@@ -164,7 +181,7 @@ def prob_bars(items: list):
         f'<div class="pbar-value">{p:.4f}</div></div>'
         for lab, p, col in items
     )
-    st.markdown(rows, unsafe_allow_html=True)
+    st.markdown(f'<div class="pbars">{rows}</div>', unsafe_allow_html=True)
 
 
 def flag_card(row: dict) -> str:

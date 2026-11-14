@@ -118,3 +118,14 @@ def test_old_session_files_are_pruned_when_a_new_session_starts(tmp_path, monkey
     os.utime(old, (past, past))
     history.read_all()  # first use by a new session
     assert not old.exists() and recent.exists()
+
+
+def test_history_uses_given_calculation_time(tmp_path, monkeypatch):
+    monkeypatch.setenv("DISASTER_HISTORY_DB", str(tmp_path / "h.db"))
+    history.log_prediction("flood", {"a": 1}, "Flood", {"Flood class": 0.6}, "red", True, created="2026-01-02 03:04:05")
+    assert history.read_all()[0]["created"] == "2026-01-02 03:04:05"
+
+
+def test_input_hint_hidden_in_css():
+    from pathlib import Path
+    assert 'data-testid="InputInstructions"' in (Path(__file__).resolve().parents[1] / "dashboard" / "ui.py").read_text()

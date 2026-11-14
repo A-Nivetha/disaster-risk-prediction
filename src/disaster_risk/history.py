@@ -86,14 +86,15 @@ def _connect():
     return con
 
 
-def log_prediction(model: str, inputs: dict, result_class: str, probabilities: dict, level: str, flagged: bool, place: dict = None):
-    """place: optional {name, latitude, longitude}; a map label, not a model input."""
+def log_prediction(model: str, inputs: dict, result_class: str, probabilities: dict, level: str, flagged: bool, place: dict = None, created: str = None):
+    """place: optional {name, latitude, longitude}; a map label, not a model input.
+    created: calculation time (YYYY-MM-DD HH:MM:SS); the save time is used when it is not given."""
     con = _connect()
     with con:
         con.execute(
             "INSERT INTO predictions (created, model, inputs, result_class, probabilities, level, flagged, place) "
             "VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
-            (datetime.now().strftime("%Y-%m-%d %H:%M:%S"), model, json.dumps(inputs),
+            (created or datetime.now().strftime("%Y-%m-%d %H:%M:%S"), model, json.dumps(inputs),
              result_class, json.dumps(probabilities), level, int(flagged),
              json.dumps(place) if place else None),
         )

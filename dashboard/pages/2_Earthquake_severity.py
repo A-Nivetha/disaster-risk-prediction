@@ -21,7 +21,7 @@ KEY = "eq_calc"
 def save_eq():
     c = st.session_state.get(KEY)
     if c and not c["saved"]:
-        history.log_prediction("earthquake", c["inputs"], c["lv"]["top"], c["probs"], c["lv"]["level"], c["lv"]["flagged"])
+        history.log_prediction("earthquake", c["inputs"], c["lv"]["top"], c["probs"], c["lv"]["level"], c["lv"]["flagged"], created=c["time"])
         c["saved"] = True
 
 

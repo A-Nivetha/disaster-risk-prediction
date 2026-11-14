@@ -20,7 +20,7 @@ def save_flood():
     if c and not c["saved"]:
         history.log_prediction("flood", c["values"], c["out"]["predicted_class"],
                                {"Flood class": c["p"], "No-flood class": 1 - c["p"]},
-                               c["lv"]["level"], c["lv"]["flagged"], place=c["place"])
+                               c["lv"]["level"], c["lv"]["flagged"], place=c["place"], created=c["time"])
         c["saved"] = True
 
 
@@ -36,7 +36,7 @@ with left:
                 values[name] = st.slider(
                     ui.sentence_case(name), int(lo), int(hi), key=f"flood_{name}")
         st.subheader("Place (optional)")
-        p1, p2, p3 = st.columns([2, 1, 1], gap="medium")
+        p1, p2, p3 = st.columns([3, 2, 2], gap="medium")
         place_name = p1.text_input("Place name", key="flood_place_name")
         place_lat = p2.number_input("Latitude", -90.0, 90.0, value=None, step=0.1, format="%.4f", key="flood_place_lat")
         place_lon = p3.number_input("Longitude", -180.0, 180.0, value=None, step=0.1, format="%.4f", key="flood_place_lon")
