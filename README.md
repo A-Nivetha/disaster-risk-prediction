@@ -1,5 +1,14 @@
 # Flood and Earthquake Risk Prediction
 
+Live prototype:  https://disaster-risk-prediction-earthquake-flood.streamlit.app
+
+Notes on the hosted copy:
+
+- Saved calculations and alerts belong to your browser session only. Other visitors cannot see them, and a session's history is deleted after 24 hours without use.
+- The app goes to sleep after 12 hours without visitors. The first visit after that shows a wake-up page; click the button and wait for it to start.
+- Times shown on the hosted copy are server time (UTC).
+
+
 Two XGBoost classifiers, K-means clustering and a Streamlit dashboard, built on public historical datasets.
 This is a prototype. It is not a forecasting or early-warning system.
 
